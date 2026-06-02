@@ -534,30 +534,85 @@ body, html {
         </div>
 
         <!-- PHOTO ROTATION SCRIPT -->
-        <script>
-        fetch('/photos/')
-          .then(response => response.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
+      <script>
+const btn = document.getElementById('band-photo-btn');
 
-            const images = Array.from(doc.querySelectorAll('a'))
-              .map(a => a.getAttribute('href'))
-              .filter(name => name.match(/\.(jpg|jpeg|png|gif)$/i));
+// Your R2 prefix
+const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/";
 
-            if (images.length === 0) return;
+// List of images to rotate through
+const images = [
+    "IMG_8577.JPG",
+    "IMG_8579.JPG",
+    "IMG_8580.JPG",
+    "IMG_9166.JPG",
+    "IMG_9167.JPG",
+    "IMG_9168.JPG",
+    "IMG_9169.JPG",
+    "IMG_9170.JPG",
+    "IMG_9171.JPG",
+    "IMG_9172.JPG",
+    "IMG_9173.JPG",
+    "IMG_9174.JPG",
+    "IMG_9175.JPG",
+    "IMG_8189.JPEG",
+    "IMG_8190.JPEG",
+    "IMG_8191.JPEG",
+    "IMG_8192.JPEG",
+    "IMG_8193.JPEG",
+    "IMG_8194.JPEG",
+    "IMG_8195.JPEG",
+    "IMG_8196.JPEG",
+    "IMG_8197.JPEG",
+    "IMG_8198.JPEG",
+    "IMG_8199.JPEG",
+    "IMG_4016.JPEG",
+    "IMG_4026.JPEG",
+    "IMG_4027.JPEG",
+    "IMG_4028.JPEG",
+    "IMG_4029.JPEG",
+    "IMG_4030.JPEG",
+    "IMG_4031.JPEG",
+    "IMG_4032.JPEG",
+    "DSC_4762.jpeg",
+    "DSC_4761.jpeg",
+    "DSC_4760.jpeg",
+    "DSC_4734.jpeg",
+    "DSC_4733.jpeg",
+    "DSC_4722.jpeg",
+    "DSC_4721.jpeg",
+    "DSC_4719.jpeg",
+    "DSC_4718.jpeg",
+    "DSC_4713.jpeg",
+    "DSC_4710.jpeg",
+    "DSC_4704.jpeg",
+    "DSC_4703.jpeg",
+    "DSC_4702.jpeg",
+    "DSC_4699.jpeg",
+    "DSC_4698.jpeg",
+    "DSC_4693.jpeg",
+    "DSC_4692.jpeg",
+    "DSC_4690.jpeg",
+    "DSC_4688.jpeg",
+    "Erec%20Pic%201.jpg",
+    "Erec%20Pic%203.jpg",
+    "erec%20Pic%202.jpg",
+    "download.jpg",
+    "att.q31Yf5ZvFPDtM2ugMckV2DIywTRuQiCfVDpA5DkBJWo.jpg"
+];
 
-            const btn = document.getElementById('band-photo-btn');
-            let index = 0;
+let index = 0;
 
-            btn.style.backgroundImage = `url('/photos/${images[index]}')`;
+// Set first image
+btn.style.backgroundImage = `url(${base}${images[index]})`;
 
-            setInterval(() => {
-              index = (index + 1) % images.length;
-              btn.style.backgroundImage = `url('/photos/${images[index]}')`;
-            }, 3000);
-          });
-        </script>
+// Rotate every 3 seconds
+setInterval(() => {
+    index = (index + 1) % images.length;
+    btn.style.backgroundImage = `url(${base}${images[index]})`;
+}, 3000);
+</script>
+
 
         <a href="https://www.youtube.com/@Time4ETC" target="_blank" class="card">
     <h2>Watch Our Live Shows here</h2>
