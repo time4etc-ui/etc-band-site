@@ -755,26 +755,24 @@ setInterval(() => {
 setInterval(moveFleas, 16);
 </script>
 
-<script>
-const vids = [
-    "videos/MVI_0121.MP4",
-    "videos/MVI_1081.MP4",
-    "videos/MVI_1154.MP4",
-    "videos/MVI_1155 (1).MP4",
-    "videos/MVI_5841.MP4",
-    "videos/MVI_5932.MP4",
-    "videos/MVI_5950.MP4",
-    "videos/MVI_5951.MP4",
-    "videos/MVI_5974.MP4",
-    "videos/MVI_8312.MP4",
-    "videos/7000C73C-EAE5-4B90-BF03-40FA70558690.MP4"
-];
 
+
+<script>
 const video = document.getElementById("bgVid");
 const fader = document.querySelector(".video-fader");
 
+// Your R2 video folder
+const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/videos/";
+
+// Add your actual video filenames here once uploaded
+const vids = [
+    "video1.mp4",
+    "video2.mp4",
+    "video3.mp4"
+];
+
 function playRandomVideo() {
-    const file = vids[Math.floor(Math.random() * vids.length)];
+    const file = base + vids[Math.floor(Math.random() * vids.length)];
     video.src = file;
 
     // Fade in
@@ -784,19 +782,19 @@ function playRandomVideo() {
 
     // Play video for 8 seconds
     setTimeout(() => {
-        // Fade to black (0.6s)
+        // Fade to black
         fader.style.opacity = 1;
 
-        // Wait for fade, then switch video
         setTimeout(() => {
             playRandomVideo();
         }, 600);
 
-    }, 8000); // video visible for 8 seconds
+    }, 8000);
 }
 
 playRandomVideo();
 </script>
+
 
 
 
