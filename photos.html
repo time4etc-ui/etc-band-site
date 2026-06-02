@@ -181,56 +181,184 @@ pointer-events: none;
   <img class="modal-content" id="modal-img">
 </div>
 
-<section>
-  <h1>ETC Band Photos Through the Years</h1>
-  <div class="gallery">
-    <div id="photo-grid"></div>
-  </div>
-</section>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ETC Band Photos</title>
+<style>
+    body {
+        background: #111;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 30px;
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+
+    .gallery {
+        column-count: 3;
+        column-gap: 15px;
+        max-width: 1400px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
+    .gallery img:hover {
+        opacity: 0.8;
+    }
+
+    @media (max-width: 900px) {
+        .gallery {
+            column-count: 2;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .gallery {
+            column-count: 1;
+        }
+    }
+
+    /* Fullscreen viewer */
+    #lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease;
+        z-index: 9999;
+    }
+
+    #lightbox.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px;
+    }
+</style>
+</head>
+<body>
+
+<h1>ETC Band Photos</h1>
+
+<div class="gallery">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8577.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8579.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8580.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9166.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9167.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9168.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9169.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9170.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9171.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9172.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9173.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9174.JPG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9175.JPG">
+
+<!-- Next batch -->
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8189.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8190.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8191.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8192.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8193.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8194.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8195.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8196.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8197.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8198.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8199.JPEG">
+
+<!-- Next batch -->
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4016.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4026.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4027.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4028.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4029.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4030.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4031.JPEG">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4032.JPEG">
+
+<!-- Next batch -->
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4762.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4761.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4760.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4734.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4733.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4722.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4721.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4719.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4718.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4713.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4710.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4704.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4703.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4702.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4699.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4698.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4693.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4692.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4690.jpeg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4688.jpeg">
+
+<!-- Misc files -->
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/Erec%20Pic%201.jpg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/Erec%20Pic%203.jpg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/erec%20Pic%202.jpg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/download.jpg">
+<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/att.q31Yf5ZvFPDtM2ugMckV2DIywTRuQiCfVDpA5DkBJWo.jpg">
+
+
+    </div> <!-- end gallery -->
+
+<!-- Fullscreen viewer -->
+<div id="lightbox">
+    <img id="lightbox-img" src="">
+</div>
 
 <script>
-fetch('/photos/')
-  .then(response => response.text())
-  .then(html => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-
-    const links = Array.from(doc.querySelectorAll('a'))
-      .filter(link => link.getAttribute('href').match(/\.(jpg|jpeg|png|gif)$/i));
-
-    const grid = document.getElementById('photo-grid');
-
-    links.forEach(link => {
-      const href = link.getAttribute('href');
-
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-
-      const img = document.createElement('img');
-      img.src = '/photos/' + href;
-
-      item.appendChild(img);
-      grid.appendChild(item);
-
-      img.addEventListener('click', () => {
-        const modal = document.getElementById('photo-modal');
-        const modalImg = document.getElementById('modal-img');
-
-        modal.style.display = "block";
-        modalImg.src = img.src;
-
-        document.querySelector('.close').onclick = function() {
-          modal.style.display = "none";
-        };
-
-        modal.onclick = function(e) {
-          if (e.target === modal) {
-            modal.style.display = "none";
-          }
-        };
-      });
+    // Open fullscreen on click
+    document.addEventListener("click", function(e) {
+        if (e.target.tagName === "IMG" && e.target.parentElement.classList.contains("gallery")) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            lightboxImg.src = e.target.src;
+            lightbox.classList.add("active");
+        }
     });
-  });
+
+    // Close fullscreen when clicking outside the image
+    document.getElementById("lightbox").addEventListener("click", function(e) {
+        if (e.target.id === "lightbox" || e.target.id === "lightbox-img") {
+            this.classList.remove("active");
+        }
+    });
 </script>
 
 </body>
