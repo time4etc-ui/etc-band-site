@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ETC Band Photos</title>
+<meta charset="UTF-8">
+<title>ETC Band Photos</title>
 
-    <style>
-        /* FULL-WIDTH NEON NAV STRIP */
+<style>
+
+/* ---------------- NAV BAR ---------------- */
 
 .nav-strip {
     box-sizing: border-box;
@@ -21,42 +22,41 @@
     position: fixed;
     top: 0;
     z-index: 999;
-    pointer-events: auto;
 }
 
-
-        .nav-strip .logo a {
-            color: #ff2bcd;
-            text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: 32px;
-text-decoration: none;
-
-        }
-
-        .nav-centered a {
-            margin-left: 20px;
-            color: #ff2bcd;
-            text-decoration: none;
-            font-weight: bold;
-            text-shadow: 0 0 8px #ff2bcd;
-pointer-events: auto;        
-text-decoration: none;
-}
+.nav-strip .logo a {
+    color: #ff2bcd;
+    text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 32px;
+    text-decoration: none;
 }
 
-        .nav-centered a:hover {
-            color: white;
-            text-shadow: 0 0 12px white;
-        }
+.nav-centered a {
+    margin-left: 20px;
+    color: #ff2bcd;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 8px #ff2bcd;
+}
+
+.nav-centered a:hover {
+    color: white;
+    text-shadow: 0 0 12px white;
+}
+
+/* ---------------- BACKGROUND ---------------- */
 
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     position: relative;
+    background: #111;
+    color: #fff;
+    text-align: center;
 }
 
 body::before {
@@ -75,91 +75,78 @@ body::before {
     pointer-events: none;
 }
 
+/* ---------------- PAGE SPACING ---------------- */
 
-pointer-events: none;
-        }
+h1 {
+    margin-top: 160px;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
 
-        section {
-            margin-top: 160px;
-            text-align: center;
-        }
+/* ---------------- MASONRY GALLERY ---------------- */
 
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            padding-top: 40px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.9);
-        }
+.gallery {
+    column-count: 3;
+    column-gap: 15px;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
 
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-        }
+.gallery img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
 
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.gallery img:hover {
+    opacity: 0.8;
+}
 
-        /* GALLERY */
-.gallery,
-.gallery-item,
-.gallery-item img,
-#photo-grid {
+@media (max-width: 900px) {
+    .gallery {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        column-count: 1;
+    }
+}
+
+/* ---------------- FULLSCREEN VIEWER ---------------- */
+
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 9999;
+}
+
+#lightbox.active {
+    opacity: 1;
     pointer-events: auto;
 }
 
- 
-.gallery {
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
 
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        #photo-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .gallery-item {
-            width: 250px;
-            height: 250px;
-            overflow: hidden;
-            border-radius: 8px;
-            border: 2px solid #ff00ff;
-            box-shadow: 0 0 15px #ff00ff;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        .gallery-item img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #ff00ff;
-        }
-    </style>
+</style>
 </head>
 
 <body>
@@ -176,91 +163,41 @@ pointer-events: none;
     </nav>
 </header>
 
-<div id="photo-modal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="modal-img">
+<h1>ETC Band Photos</h1>
+
+<div class="gallery">
+
+    <!-- ⭐ INSERT PART 2 (ALL <img> TAGS) RIGHT HERE ⭐ -->
+
 </div>
 
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>ETC Band Photos</title>
-<style>
-    body {
-        background: #111;
-        color: #fff;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
+<!-- Fullscreen viewer -->
+<div id="lightbox">
+    <img id="lightbox-img" src="">
+</div>
 
-    h1 {
-        margin-top: 30px;
-        font-size: 2.2rem;
-        letter-spacing: 1px;
-    }
-
-    .gallery {
-        column-count: 3;
-        column-gap: 15px;
-        max-width: 1400px;
-        margin: 40px auto;
-        padding: 0 20px;
-    }
-
-    .gallery img {
-        width: 100%;
-        margin-bottom: 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
-    }
-
-    .gallery img:hover {
-        opacity: 0.8;
-    }
-
-    @media (max-width: 900px) {
-        .gallery {
-            column-count: 2;
+<script>
+    // Open fullscreen
+    document.addEventListener("click", function(e) {
+        if (e.target.tagName === "IMG" && e.target.parentElement.classList.contains("gallery")) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            lightboxImg.src = e.target.src;
+            lightbox.classList.add("active");
         }
-    }
+    });
 
-    @media (max-width: 600px) {
-        .gallery {
-            column-count: 1;
+    // Close fullscreen
+    document.getElementById("lightbox").addEventListener("click", function(e) {
+        if (e.target.id === "lightbox" || e.target.id === "lightbox-img") {
+            this.classList.remove("active");
         }
-    }
+    });
+</script>
 
-    /* Fullscreen viewer */
-    #lightbox {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.95);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s ease;
-        z-index: 9999;
-    }
+</body>
+</html>
 
-    #lightbox.active {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    #lightbox img {
-        max-width: 90%;
-        max-height: 90%;
-        border-radius: 10px;
-    }
 </style>
 </head>
 <body>
