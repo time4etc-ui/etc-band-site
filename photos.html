@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ETC Band Photos</title>
+
+    <style>
+        /* FULL-WIDTH NEON NAV STRIP */
+
+.nav-strip {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 25px 40px 10px;
+    background: #111;
+    border-top: 2px dashed #ff2bcd;
+    border-bottom: 2px dashed #ff2bcd;
+    box-shadow: 0 0 25px rgba(255, 43, 205, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    pointer-events: auto;
+}
+
+
+        .nav-strip .logo a {
+            color: #ff2bcd;
+            text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 32px;
+text-decoration: none;
+
+        }
+
+        .nav-centered a {
+            margin-left: 20px;
+            color: #ff2bcd;
+            text-decoration: none;
+            font-weight: bold;
+            text-shadow: 0 0 8px #ff2bcd;
+pointer-events: auto;        
+text-decoration: none;
+}
+}
+
+        .nav-centered a:hover {
+            color: white;
+            text-shadow: 0 0 12px white;
+        }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/etclogoGradiant.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+pointer-events: none;
+        }
+
+        section {
+            margin-top: 160px;
+            text-align: center;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 40px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* GALLERY */
+.gallery,
+.gallery-item,
+.gallery-item img,
+#photo-grid {
+    pointer-events: auto;
+}
+
+ 
+.gallery {
+
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        #photo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 15px #ff00ff;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #ff00ff;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="nav-strip">
+    <div class="logo">
+        <a href="index.html">EXPIRED TACO COUPON</a>
+    </div>
+
+    <nav class="nav-centered">
+        <a href="about.html">ABOUT</a>
+        <a href="photos.html">PHOTOS</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+</header>
+
+<div id="photo-modal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modal-img">
+</div>
+
+<section>
+  <h1>ETC Band Photos Through the Years</h1>
+  <div class="gallery">
+    <div id="photo-grid"></div>
+  </div>
+</section>
+
+<script>
+fetch('/photos/')
+  .then(response => response.text())
+  .then(html => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    const links = Array.from(doc.querySelectorAll('a'))
+      .filter(link => link.getAttribute('href').match(/\.(jpg|jpeg|png|gif)$/i));
+
+    const grid = document.getElementById('photo-grid');
+
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+
+      const img = document.createElement('img');
+      img.src = '/photos/' + href;
+
+      item.appendChild(img);
+      grid.appendChild(item);
+
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('photo-modal');
+        const modalImg = document.getElementById('modal-img');
+
+        modal.style.display = "block";
+        modalImg.src = img.src;
+
+        document.querySelector('.close').onclick = function() {
+          modal.style.display = "none";
+        };
+
+        modal.onclick = function(e) {
+          if (e.target === modal) {
+            modal.style.display = "none";
+          }
+        };
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

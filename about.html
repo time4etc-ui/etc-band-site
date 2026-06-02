@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – Expired Taco Coupon</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* NAV BAR */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: black;
+            border-bottom: 4px solid #ff00ff;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .site-title a {
+            color: white;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: 900;
+            margin-left: 20px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-links a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        /* PAGE CONTENT SPACING */
+        .page-content {
+            margin-top: 120px;
+            padding: 20px;
+        }
+
+        /* NEON TITLES */
+        .neon-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            color: #ff00ff;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+        }
+
+        /* BAND GRID */
+        .band-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .member-card {
+            background: #111;
+            border: 2px solid #ff00ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px #ff00ff55;
+        }
+
+        .member-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .member-card h2 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .role {
+            font-style: italic;
+            color: #ff66ff;
+            margin-bottom: 10px;
+        }
+
+        /* STORY SECTION */
+        .band-story {
+            margin-top: 60px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .band-story p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <div class="nav-bar">
+        <div class="site-title"><a href="index.html">EXPIRED TACO COUPON</a></div>
+        <div class="nav-links">
+            <a href="about.html">ABOUT</a>
+            <a href="photos.html">PHOTOS</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </div>
+
+    <div class="page-content">
+
+        <!-- MEET THE BAND -->
+        <h1 class="neon-title">Meet the Band</h1>
+
+        <div class="band-grid">
+
+<div class="member-card">
+    <img src="photos/IMG_8195.JPEG" alt="Felipe Rodz">
+    <h2>Felipe Rodz (Walrus Man)</h2>
+    <p class="role">Main Vocals • Rhythm Guitar</p>
+    <p>I just like to play, listen, and consume Music</p>
+</div>
+
+            <div class="member-card">
+                <img src="images/member2.jpg" alt="Band Member 2">
+                <h2>Kevin Martinez</h2>
+                <p class="role">Drums • Secondary Vocals</p>
+                <p>Short bio about this member. Influences, personality, fun fact, whatever you want.</p>
+            </div>
+
+            <div class="member-card">
+                <img src="images/member3.jpg" alt="Band Member 3">
+                <h2>Erick Martinez</h2>
+                <p class="role">Lead Guitar</p>
+                <p>Brother to Kevin Martinez</p>
+            </div>
+
+            <div class="member-card">
+                <img src="images/member4.jpg" alt="Band Member 4">
+                <h2>Rafael Diaz</h2>
+                <p class="role">Guitar • Bass</p>
+                <p>Something somethin</p>
+            </div>
+
+            <div class="member-card">
+                <img src="images/member5.jpg" alt="Band Member 5">
+                <h2>Austin Randle</h2>
+                <p class="role">Secondary Guitar • Keyboard/Synths</p>
+                <p>somethin somethin</p>
+            </div>
+
+        </div>
+
+        <!-- STORY SECTION -->
+        <section class="band-story">
+            <h1 class="neon-title">Our Story</h1>
+            <p>
+                Southwest Kansas Boys Covering music they grew up to. Mostly Punk, Alternative, Rock, and Metal. so if thats your vibe hit us up!
+            </p>
+        </section>
+
+    </div>
+
+</body>
+</html>

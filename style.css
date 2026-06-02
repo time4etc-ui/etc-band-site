@@ -1,0 +1,62 @@
+.meet-the-band {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.neon-title {
+    font-size: 3rem;
+    color: #ff2bd4;
+    text-shadow: 0 0 15px #ff2bd4, 0 0 30px #ff2bd4;
+    margin-bottom: 40px;
+}
+
+.band-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.member-card {
+    width: 260px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ff2bd4;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px #ff2bd4;
+}
+
+.member-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px #ff2bd4;
+}
+
+.member-card h2 {
+    margin: 10px 0 5px;
+    color: #ff2bd4;
+}
+
+.member-card .role {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.member-card .bio {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+.meet-the-band {
+    padding-bottom: 60px;
+}
+body {
+    background: url('images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: Arial, sans-serif;
+}

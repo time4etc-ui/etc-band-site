@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Expired Taco Coupon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* GLOBAL ------------------------------------------------------ */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    text-align: center;
+}
+/* FULL-WIDTH NEON NAV STRIP */
+.nav-strip {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 25px 40px 10px;
+    background: #111;
+    border-top: 2px dashed #ff2bcd;
+    border-bottom: 2px dashed #ff2bcd;
+    box-shadow: 0 0 25px rgba(255, 43, 205, 0.5);
+
+    display: flex;
+    justify-content: space-between; /* title left, nav right */
+    align-items: center;
+}
+
+/* BIG NEON LOGO */
+.nav-strip .logo {
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 32px;
+    color: #ff2bcd;
+    text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
+}
+
+/* NAV LINKS */
+.nav-centered {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.nav-centered a {
+    color: #ff2bcd;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #ff2bcd;
+}
+
+/* TOP TITLE --------------------------------------------------- */
+
+.site-title {
+    width: 100%;
+    padding: 25px 0;
+    font-size: 38px;
+    font-weight: bold;
+    color: #ff2bcd;
+    text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
+    letter-spacing: 2px;
+}
+
+/* NAV --------------------------------------------------------- */
+.nav-strip {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 25px 40px 10px;
+    background: #111;
+    border-top: 2px dashed #ff2bcd;
+    border-bottom: 2px dashed #ff2bcd;
+    box-shadow: 0 0 25px rgba(255, 43, 205, 0.5);
+
+    display: flex;              /* THIS is the missing piece */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    animation: neonPulse 2.5s infinite alternate;
+
+position: sticky;
+top: 0;
+z-index: 999;
+
+}
+.nav-strip:hover {
+    animation: flicker 0.15s steps(2, end) 3;
+}
+@keyframes flicker {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+.nav-centered a:hover {
+    color: white;
+    text-shadow: 0 0 12px white, 0 0 20px white;
+}
+
+/* GLOBAL NEON TEXT ------------------------------------------- */
+h1, h2, h3, p, a, .tag {
+    color: #ff2bcd;
+    text-shadow: 0 0 10px #ff2bcd, 0 0 20px #ff2bcd;
+}
+
+
+/* ============================
+   GLOBAL PAGE STYLING
+============================ */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    background-image: url('etclogoGradiant.png');
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+
+/* ============================
+   HERO SECTION
+============================ */
+
+.latest-video-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #ff00ff;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.arrow-down {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ff00ff;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.band-photo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.socials-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap; /* makes it mobile-friendly */
+}
+
+.social-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border: 2px solid #ff2bd4;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff2bd4;
+}
+
+
+.hero-img {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff2bd4;
+    animation: fadeIn 0.8s ease-out, neonPulse 3s infinite ease-in-out;
+}
+
+.social-stack {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.fb-header {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.fb-header h2 {
+    color: #ff00ff;
+    font-size: 2rem;
+    text-shadow: 0 0 10px #ff00ff;
+    margin: 0;
+}
+
+.fb-arrow {
+    font-size: 3rem;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+    display: inline-block;
+    transform: rotate(45deg); /* points down-left */
+    animation: fb-bounce 1s infinite;
+    margin-top: 5px;
+}
+
+@keyframes fb-bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(8px); }
+}
+
+
+.facebook-embed,
+
+.youtube-embed {
+    background: #111;
+    border: 2px dashed var(--neon);
+    padding: 15px;
+    border-radius: 10px;
+    animation: fadeIn 0.8s ease-out, neonPulse 3s infinite ease-in-out;
+}
+
+.facebook-embed iframe,
+.youtube-embed iframe {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--neon);
+    box-shadow: 0 0 15px var(--neon);
+}
+
+/* ============================
+   ANIMATIONS
+============================ */
+
+@keyframes neonPulse {
+    0% { box-shadow: 0 0 15px rgba(255, 43, 205, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(255, 43, 205, 0.7); }
+    100% { box-shadow: 0 0 15px rgba(255, 43, 205, 0.3); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* BUTTONS ----------------------------------------------------- */
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 10px;
+    background: #ff2bcd;
+    color: black;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+/* BAND PHOTO BUTTON ------------------------------------------ */
+#band-photo-btn {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px dashed #ff2bcd;
+    box-shadow: 0 0 20px rgba(255, 43, 205, 0.5);
+    border-radius: 100px;
+    text-indent: -9999px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* CONTENT GRID ------------------------------------------------ */
+#stuff {
+    padding: 60px 20px;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 280px;
+    background: #111;
+    border: 2px solid #ff2bcd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 43, 205, 0.4);
+}
+
+.card img,
+.card video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    color: #ff2bcd;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+.nav-strip {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* FLEA -------------------------------------------------------- */
+#flea-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flea {
+    width: 3px;
+    height: 3px;
+    background: #ff00ff;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #ff00ff;
+    opacity: 0;
+    pointer-events: auto;
+
+    /* Invisible click hitbox without affecting layout */
+    transform-origin: center;
+}
+
+.flea::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;   /* hitbox width */
+    height: 20px;  /* hitbox height */
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+}
+
+.flea-dot {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ff00ff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #ff00ff;
+    opacity: 1;
+    animation: fadeOut 0.6s linear forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; transform: scale(0.5); }
+}
+
+.explosion {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #ff00ff, transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: explode 0.4s ease-out forwards;
+}
+
+@keyframes explode {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(4); opacity: 0; }
+}
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* video is behind content */
+}
+
+.video-fader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    z-index: -2; /* fade is behind video */
+    transition: opacity 0.6s ease;
+}
+
+
+
+
+
+
+</style>
+</head>
+<header class="nav-strip">
+    <div class="logo">EXPIRED TACO COUPON</div>
+
+<nav class="nav-centered">
+    <a href="about.html">ABOUT</a>
+    <a href="#">PROJECTS</a>
+<a href="contact.html" class="button">CONTACT</a>
+</nav>
+</header>
+
+<body>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0">
+</script>
+
+
+<div class="video-fader"></div>
+
+<video id="bgVid" class="bg-video" autoplay muted playsinline></video>
+
+
+<!-- HERO -->
+<div class="coupon-hero">
+
+    <h1>Welcome to Expired Taco Coupon's Page</h1>
+
+    <section class="hero-section">
+
+        <div class="band-photo-container">
+            <img src="Band Photo.jpg" class="hero-img" alt="Band Photo">
+        </div>
+
+<div class="socials-row">
+
+    <div class="social-box">
+        <!-- FACEBOOK EMBED -->
+<div class="fb-header">
+    <h2>Follow us on Facebook</h2>
+    <div class="fb-arrow">↓</div>
+</div>
+
+
+        <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=61573573598528&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+            width="500"
+            height="700"
+            style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+        </iframe>
+    </div>
+
+    <div class="social-box">
+        <!-- YOUTUBE PLAYLIST EMBED -->
+
+<h2 class="latest-video-title">Check out our latest video</h2>
+<div class="arrow-down">▼</div>
+
+        <iframe
+            width="500"
+            height="315"
+            src="https://www.youtube.com/embed/videoseries?list=PLVNiZxidZDRrXGA388N0Hh9AYcQtFFrpL"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</div>
+
+
+    </section>
+
+</div>
+
+
+<!-- CONTENT -->
+<section id="stuff">
+    <div class="grid">
+
+        <div class="card">
+            <h2>Next Show</h2>
+            <img src="ToBeAnnouced.png" alt="Next Show Coming Soon">
+        </div>
+
+        <div class="card">
+            <h2>Band Photos</h2>
+            <a id="band-photo-btn" href="photos.html">Band Photos</a>
+        </div>
+
+        <!-- PHOTO ROTATION SCRIPT -->
+        <script>
+        fetch('/photos/')
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            const images = Array.from(doc.querySelectorAll('a'))
+              .map(a => a.getAttribute('href'))
+              .filter(name => name.match(/\.(jpg|jpeg|png|gif)$/i));
+
+            if (images.length === 0) return;
+
+            const btn = document.getElementById('band-photo-btn');
+            let index = 0;
+
+            btn.style.backgroundImage = `url('/photos/${images[index]}')`;
+
+            setInterval(() => {
+              index = (index + 1) % images.length;
+              btn.style.backgroundImage = `url('/photos/${images[index]}')`;
+            }, 3000);
+          });
+        </script>
+
+        <a href="https://www.youtube.com/@Time4ETC" target="_blank" class="card">
+            <h2>Watch Our Live Shows here</h2>
+            <video src="loop.mp4" autoplay loop muted playsinline></video>
+        </a>
+
+    </div>
+</section>
+
+<!-- FLEA ELEMENT -->
+<div id="flea-container"></div>
+<div id="flea-trail"></div>
+
+<!-- FLEA SCRIPT -->
+<script>
+let idleTime = 0;
+let fleas = [];
+const container = document.getElementById("flea-container");
+
+// Create a new flea
+function spawnFlea(x, y) {
+    const flea = document.createElement("div");
+    flea.classList.add("flea");
+
+    flea.style.left = x + "px";
+    flea.style.top = y + "px";
+
+    // Random velocity
+    flea.vx = (Math.random() * 4) + 2;
+    flea.vy = (Math.random() * 4) + 2;
+
+    flea.active = false;
+
+    // Click to explode + split
+    flea.addEventListener("click", () => explodeFlea(flea));
+
+    container.appendChild(flea);
+    fleas.push(flea);
+
+    return flea;
+}
+
+// Explosion + splitting
+function explodeFlea(flea) {
+    const x = flea.offsetLeft;
+    const y = flea.offsetTop;
+
+    // Explosion effect
+    const boom = document.createElement("div");
+    boom.classList.add("explosion");
+    boom.style.left = x + "px";
+    boom.style.top = y + "px";
+    container.appendChild(boom);
+
+    setTimeout(() => boom.remove(), 400);
+
+    // Remove original flea
+    flea.remove();
+    fleas = fleas.filter(f => f !== flea);
+
+    // Spawn two new fleas
+    spawnFlea(x, y);
+    spawnFlea(x + 10, y + 10);
+}
+
+// Neon trail
+function leaveTrail(x, y) {
+    const dot = document.createElement("div");
+    dot.classList.add("flea-dot");
+    dot.style.left = x + "px";
+    dot.style.top = y + "px";
+    container.appendChild(dot);
+
+    setTimeout(() => dot.remove(), 600);
+}
+
+// Movement engine
+function moveFleas() {
+    fleas.forEach(flea => {
+        if (!flea.active) return;
+
+        let x = flea.offsetLeft;
+        let y = flea.offsetTop;
+
+        // Jitter
+        const jitterX = (Math.random() - 0.5) * 6;
+        const jitterY = (Math.random() - 0.5) * 6;
+
+        // Random direction changes
+        if (Math.random() < 0.05) flea.vx = (Math.random() * 6) - 3;
+        if (Math.random() < 0.05) flea.vy = (Math.random() * 6) - 3;
+
+        x += flea.vx + jitterX;
+        y += flea.vy + jitterY;
+
+        // Bounce off walls
+        if (x <= 0 || x >= window.innerWidth - 3) flea.vx = -flea.vx;
+        if (y <= 0 || y >= window.innerHeight - 3) flea.vy = -flea.vy;
+
+        flea.style.left = x + "px";
+        flea.style.top = y + "px";
+
+        leaveTrail(x, y);
+    });
+}
+
+// Idle detection
+function resetIdle() {
+    idleTime = 0;
+}
+
+document.onmousemove = resetIdle;
+document.onkeydown = resetIdle;
+document.onclick = resetIdle;
+document.onscroll = resetIdle;
+
+// Idle timer
+setInterval(() => {
+    idleTime++;
+
+    // TEST MODE: 1 second
+    if (idleTime >= 1) {
+        if (fleas.length === 0) {
+            spawnFlea(
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerHeight
+            );
+        }
+
+        fleas.forEach(f => {
+            f.style.opacity = 1;
+            f.active = true;
+        });
+    }
+
+}, 200);
+
+// Movement loop
+setInterval(moveFleas, 16);
+</script>
+
+<script>
+const vids = [
+    "videos/MVI_0121.MP4",
+    "videos/MVI_1081.MP4",
+    "videos/MVI_1154.MP4",
+    "videos/MVI_1155 (1).MP4",
+    "videos/MVI_5841.MP4",
+    "videos/MVI_5932.MP4",
+    "videos/MVI_5950.MP4",
+    "videos/MVI_5951.MP4",
+    "videos/MVI_5974.MP4",
+    "videos/MVI_8312.MP4",
+    "videos/7000C73C-EAE5-4B90-BF03-40FA70558690.MP4"
+];
+
+const video = document.getElementById("bgVid");
+const fader = document.querySelector(".video-fader");
+
+function playRandomVideo() {
+    const file = vids[Math.floor(Math.random() * vids.length)];
+    video.src = file;
+
+    // Fade in
+    fader.style.opacity = 0;
+
+    video.play();
+
+    // Play video for 8 seconds
+    setTimeout(() => {
+        // Fade to black (0.6s)
+        fader.style.opacity = 1;
+
+        // Wait for fade, then switch video
+        setTimeout(() => {
+            playRandomVideo();
+        }, 600);
+
+    }, 8000); // video visible for 8 seconds
+}
+
+playRandomVideo();
+</script>
+
+
+
+</body>
+</html>
