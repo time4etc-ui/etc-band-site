@@ -418,7 +418,7 @@ body, html {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* video is behind content */
+    z-index: -2; /* video is behind content */
 }
 
 .video-fader {
@@ -461,6 +461,7 @@ body, html {
 <div class="video-fader"></div>
 
 <video id="bgVid" class="bg-video" autoplay muted playsinline></video>
+
 
 
 <!-- HERO -->
@@ -764,6 +765,7 @@ const fader = document.querySelector(".video-fader");
 
 const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
 
+
 const vids = [
     "Mvi 9380.mp4",
     "Mvi 9382.mp4",
@@ -773,7 +775,8 @@ const vids = [
 ];
 
 function playRandomVideo() {
-    const file = base + encodeURIComponent(vids[Math.floor(Math.random() * vids.length)]);
+ const file = base + encodeURIComponent(vids[Math.floor(Math.random() * vids.length)]);
+
     video.src = file;
 
     fader.style.opacity = 0;
