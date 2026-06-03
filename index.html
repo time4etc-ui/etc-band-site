@@ -762,9 +762,15 @@ setInterval(moveFleas, 16);
 </script>
 
  <script>
+
+
+     
         const video = document.getElementById("bgVid");
         const fader = document.querySelector(".video-fader");
 
+fader.style.opacity = 0;
+
+     
         // Correct R2 folder path
         const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
 
@@ -783,9 +789,10 @@ setInterval(moveFleas, 16);
             // Fade in
             fader.style.opacity = 0;
 
-            video.play().catch(() => {
-                console.log("Autoplay blocked, retrying...");
-            });
+          video.play().catch(err => {
+    console.log("Autoplay blocked:", err);
+});
+
 
             // Play for 8 seconds
             setTimeout(() => {
