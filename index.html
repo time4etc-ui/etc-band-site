@@ -757,11 +757,11 @@ setInterval(moveFleas, 16);
 
 
 
+
 <script>
 const video = document.getElementById("bgVid");
 const fader = document.querySelector(".video-fader");
 
-// Your R2 video folder
 const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
 
 const vids = [
@@ -772,25 +772,18 @@ const vids = [
     "Mvi 9379.mp4"
 ];
 
-
 function playRandomVideo() {
-    const file = base + vids[Math.floor(Math.random() * vids.length)];
+    const file = base + encodeURIComponent(vids[Math.floor(Math.random() * vids.length)]);
     video.src = file;
 
-    // Fade in
     fader.style.opacity = 0;
-
     video.play();
 
-    // Play video for 8 seconds
     setTimeout(() => {
-        // Fade to black
         fader.style.opacity = 1;
-
         setTimeout(() => {
             playRandomVideo();
         }, 600);
-
     }, 8000);
 }
 
