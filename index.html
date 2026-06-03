@@ -443,6 +443,9 @@ body, html {
             color: white;
         }
 
+#bgVid {
+    background: red;
+}
 
 
 
@@ -772,7 +775,8 @@ fader.style.opacity = 0;
 
      
         // Correct R2 folder path
-        const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
+const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
+
 
         const vids = [
             "Mvi 9380.mp4",
@@ -783,7 +787,8 @@ fader.style.opacity = 0;
         ];
 
         function playRandomVideo() {
-            const file = base + encodeURIComponent(vids[Math.floor(Math.random() * vids.length)]);
+    const file = base + encodeURIComponent(vids[Math.floor(Math.random() * vids.length)]);
+
             video.src = file;
 
             // Fade in
@@ -791,6 +796,10 @@ fader.style.opacity = 0;
 
           video.play().catch(err => {
     console.log("Autoplay blocked:", err);
+});
+
+            document.body.addEventListener("click", () => {
+    video.play();
 });
 
 
