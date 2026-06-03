@@ -411,29 +411,37 @@ body, html {
     to { transform: scale(4); opacity: 0; }
 }
 
-.bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2; /* video is behind content */
-}
 
-.video-fader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: 0;
-    z-index: -2; /* fade is behind video */
-    transition: opacity 0.6s ease;
-}
+/* Background video */
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
 
+        /* Fade overlay */
+        .video-fader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 1;
+            transition: opacity 0.6s ease;
+            z-index: -1;
+        }
 
+        /* Your existing content stays above */
+        .content {
+            position: relative;
+            z-index: 10;
+            color: white;
+        }
 
 
 
@@ -458,11 +466,8 @@ body, html {
 </script>
 
 
-<div class="video-fader"></div>
-
-<video id="bgVid" class="bg-video" autoplay muted playsinline></video>
-
-
+ <video id="bgVid" class="bg-video" autoplay muted playsinline></video>
+    <div class="video-fader"></div>
 
 <!-- HERO -->
 <div class="coupon-hero">
@@ -756,42 +761,47 @@ setInterval(() => {
 setInterval(moveFleas, 16);
 </script>
 
+ <script>
+        const video = document.getElementById("bgVid");
+        const fader = document.querySelector(".video-fader");
+
+        // Correct R2 folder path
+        const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
+
+        const vids = [
+            "Mvi 9380.mp4",
+            "Mvi 9382.mp4",
+            "Mvi 9383.mp4",
+            "Mvi 8568.mp4",
+            "Mvi 9379.mp4"
+        ];
+
+        function playRandomVideo() {
+            const file = base + encodeURIComponent(vids[Math.floor(Math.random() * vids.length)]);
+            video.src = file;
+
+            // Fade in
+            fader.style.opacity = 0;
+
+            video.play().catch(() => {
+                console.log("Autoplay blocked, retrying...");
+            });
+
+            // Play for 8 seconds
+            setTimeout(() => {
+                fader.style.opacity = 1;
+
+                setTimeout(() => {
+                    playRandomVideo();
+                }, 600);
+
+            }, 8000);
+        }
+
+        playRandomVideo();
+    </script>
 
 
-
-<script>
-const video = document.getElementById("bgVid");
-const fader = document.querySelector(".video-fader");
-
-const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
-
-
-const vids = [
-    "Mvi 9380.mp4",
-    "Mvi 9382.mp4",
-    "Mvi 9383.mp4",
-    "Mvi 8568.mp4",
-    "Mvi 9379.mp4"
-];
-
-function playRandomVideo() {
- const file = base + encodeURIComponent(vids[Math.floor(Math.random() * vids.length)]);
-
-    video.src = file;
-
-    fader.style.opacity = 0;
-    video.play();
-
-    setTimeout(() => {
-        fader.style.opacity = 1;
-        setTimeout(() => {
-            playRandomVideo();
-        }, 600);
-    }, 8000);
-}
-
-playRandomVideo();
-</script>
 
 
 
