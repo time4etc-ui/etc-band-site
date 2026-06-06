@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ETC Band Photos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
@@ -108,7 +109,6 @@ h1 {
 
 /* ---------------- FULLSCREEN VIEWER ---------------- */
 
-* Lightbox */
 #lightbox {
     position: fixed;
     top: 0;
@@ -154,44 +154,6 @@ h1 {
 </header>
 
 <h1>ETC Band Photos</h1>
-
-<div class="gallery">
-
-    <!-- ⭐ INSERT PART 2 (ALL <img> TAGS) RIGHT HERE ⭐ -->
-
-</div>
-
-<!-- Fullscreen viewer -->
-<div id="lightbox">
-    <img id="lightbox-img" src="">
-</div>
-
-<script>
-    // Open fullscreen
-    document.addEventListener("click", function(e) {
-        if (e.target.tagName === "IMG" && e.target.parentElement.classList.contains("gallery")) {
-            const lightbox = document.getElementById("lightbox");
-            const lightboxImg = document.getElementById("lightbox-img");
-            lightboxImg.src = e.target.src;
-            lightbox.classList.add("active");
-        }
-    });
-
-    // Close fullscreen
-    document.getElementById("lightbox").addEventListener("click", function(e) {
-        if (e.target.id === "lightbox" || e.target.id === "lightbox-img") {
-            this.classList.remove("active");
-        }
-    });
-</script>
-
-</body>
-</html>
-
-</style>
-</head>
-<body>
-
 
 <!-- NEW gallery container -->
 <div id="photo-grid" class="masonry-grid"></div>
