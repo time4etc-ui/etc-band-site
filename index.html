@@ -404,6 +404,17 @@ body, html {
     transition: opacity 0.6s ease;
     z-index: -1; /* stays behind content */
 }
+.video-fader {
+    z-index: -5 !important;
+}
+#bgVid {
+    z-index: -10 !important;
+}
+.site-title {
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
 
         /* Your existing content stays above */
         .content {
@@ -416,6 +427,11 @@ body, html {
     z-index: 10;
 }
 
+.nav-strip, .nav-centered, .nav-centered a {
+    pointer-events: auto;
+}
+
+   
 
 </style>
 </head>
@@ -433,6 +449,7 @@ body, html {
     </div>
 
     <div class="site-title">Welcome to Expired Taco Coupon's Page</div>
+
 
 
     <!-- BACKGROUND VIDEO -->
