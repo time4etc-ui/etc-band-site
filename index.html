@@ -421,116 +421,118 @@ body, html {
 </head>
 <body>
 
-<div class="nav-strip">
-    <div class="logo">EXPIRED TACO COUPON</div>
+    <!-- PUNK NAV + CLEAN TITLE -->
+    <div class="nav-strip">
+        <div class="logo">EXPIRED TACO COUPON</div>
 
-    <nav class="nav-centered">
-        <a href="#about">ABOUT</a>
-        <a href="#projects">PROJECTS</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
-</div>
+        <nav class="nav-centered">
+            <a href="#about">ABOUT</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </div>
 
-<div class="site-title">Welcome to Expired Taco Coupon's Page</div>
-
-
-
+    <div class="site-title">Welcome to Expired Taco Coupon's Page</div>
 
 
-<video id="bgVid" autoplay muted playsinline loop></video>
-<div class="video-fader"></div>
-
-<div class="page-content">
-
+    <!-- BACKGROUND VIDEO -->
+    <video id="bgVid" autoplay muted playsinline loop></video>
+    <div class="video-fader"></div>
 
 
-    <!-- ALL your content -->
-    <div class="coupon-hero">...</div>
-    <section id="stuff">...</section>
+    <!-- MAIN PAGE CONTENT -->
+    <div class="page-content">
+
+        <!-- HERO SECTION -->
+        <div class="coupon-hero">
+            <h1>Welcome to Expired Taco Coupon's Page</h1>
+
+            <section class="hero-section">
+
+                <div class="band-photo-container">
+                    <img src="Band Photo.jpg" class="hero-img" alt="Band Photo">
+                </div>
+
+                <div class="socials-row">
+
+                    <!-- FACEBOOK BOX -->
+                    <div class="social-box">
+                        <div class="fb-header">
+                            <h2>Follow us on Facebook</h2>
+                            <div class="fb-arrow">↓</div>
+                        </div>
+
+                        <iframe
+                            src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=61573573598528&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
+                            width="500"
+                            height="700"
+                            style="border:none;overflow:hidden"
+                            scrolling="no"
+                            frameborder="0"
+                            allowfullscreen="true"
+                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                        </iframe>
+                    </div>
+
+                    <!-- YOUTUBE BOX -->
+                    <div class="social-box">
+                        <h2 class="latest-video-title">Check out our latest video</h2>
+                        <div class="arrow-down">▼</div>
+
+                        <iframe
+                            width="500"
+                            height="315"
+                            src="https://www.youtube.com/embed/videoseries?list=PLVNiZxidZDRrXGA388N0Hh9AYcQtFFrpL"
+                            frameborder="0"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </div>
+
+            </section>
+        </div>
+
+
+        <!-- CONTENT GRID -->
+        <section id="stuff">
+            <div class="grid">
+
+                <div class="card">
+                    <h2>Next Show</h2>
+                    <img src="ToBeAnnouced.png" alt="Next Show Coming Soon">
+                </div>
+
+                <div class="card">
+                    <h2>Band Photos</h2>
+                    <a id="band-photo-btn" href="photos.html">Band Photos</a>
+                </div>
+
+                <a href="https://www.youtube.com/@Time4ETC" target="_blank" class="card">
+                    <h2>Watch Our Live Shows here</h2>
+                    <video src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/loop.mp4" autoplay loop muted playsinline></video>
+                </a>
+
+            </div>
+        </section>
+
+    </div> <!-- END page-content -->
+
+
+    <!-- FLEA EFFECT -->
     <div id="flea-container"></div>
     <div id="flea-trail"></div>
 
-</div>
+
+    <!-- FACEBOOK SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0">
+    </script>
 
 
-    
-<!-- FACEBOOK SDK -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0">
-</script>
-
-<!-- BACKGROUND VIDEO -->
-<video id="bgVid" autoplay muted playsinline loop></video>
-<div class="video-fader"></div>
-
-<!-- MAIN CONTENT -->
-<div class="container"></div>
-
-<!-- HERO SECTION -->
-<div class="coupon-hero">
-    <h1>Welcome to Expired Taco Coupon's Page</h1>
-
-    <section class="hero-section">
-
-        <div class="band-photo-container">
-            <img src="Band Photo.jpg" class="hero-img" alt="Band Photo">
-        </div>
-
-        <div class="socials-row">
-
-            <div class="social-box">
-                <div class="fb-header">
-                    <h2>Follow us on Facebook</h2>
-                    <div class="fb-arrow">↓</div>
-                </div>
-
-                <iframe
-                    src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=61573573598528&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
-                    width="500"
-                    height="700"
-                    style="border:none;overflow:hidden"
-                    scrolling="no"
-                    frameborder="0"
-                    allowfullscreen="true"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                </iframe>
-            </div>
-
-            <div class="social-box">
-                <h2 class="latest-video-title">Check out our latest video</h2>
-                <div class="arrow-down">▼</div>
-
-                <iframe
-                    width="500"
-                    height="315"
-                    src="https://www.youtube.com/embed/videoseries?list=PLVNiZxidZDRrXGA388N0Hh9AYcQtFFrpL"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-        </div>
-
-    </section>
-</div>
-
-<!-- CONTENT GRID -->
-<section id="stuff">
-    <div class="grid">
-
-        <div class="card">
-            <h2>Next Show</h2>
-            <img src="ToBeAnnouced.png" alt="Next Show Coming Soon">
-        </div>
-
-        <div class="card">
-            <h2>Band Photos</h2>
-            <a id="band-photo-btn" href="photos.html">Band Photos</a>
-        </div>
-
-        <!-- PHOTO ROTATION SCRIPT -->
-        <script>
+    <!-- PHOTO ROTATION SCRIPT -->
+    <script>
         const btn = document.getElementById('band-photo-btn');
         const basePhotos = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/";
 
@@ -555,59 +557,42 @@ body, html {
             index = (index + 1) % images.length;
             btn.style.backgroundImage = `url(${basePhotos}${images[index]})`;
         }, 3000);
-        </script>
+    </script>
 
-        <a href="https://www.youtube.com/@Time4ETC" target="_blank" class="card">
-            <h2>Watch Our Live Shows here</h2>
-            <video src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/loop.mp4" autoplay loop muted playsinline></video>
-        </a>
 
-    </div>
-</section>
+    <!-- BACKGROUND VIDEO SCRIPT -->
+    <script>
+        const video = document.getElementById("bgVid");
+        const fader = document.querySelector(".video-fader");
+        fader.style.opacity = 0;
 
-<!-- FLEA ELEMENTS -->
-<div id="flea-container"></div>
-<div id="flea-trail"></div>
+        const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
 
-<!-- FLEA SCRIPT -->
-<script>
-/* your flea script unchanged */
-</script>
+        const vids = [
+            "1001 0018.mp4","1002 0002.mp4","Astrozombies Jam 2023.mp4","Gary Come Home Jam.mp4",
+            "Img 5782.mp4","Img 7270.mp4","MVL_0121.MP4","MVL_1081.MP4","MVL_1155 (1).MP4",
+            "Mvi 8568.mp4","Mvi 8569.mp4","Mvi 9377.mp4","Mvi 9378.mp4","Mvi 9379.mp4",
+            "Mvi 9380.mp4","Mvi 9381.mp4","Mvi 9382.mp4","Mvi 9383.mp4"
+        ];
 
-<!-- BACKGROUND VIDEO SCRIPT -->
-<script>
-const video = document.getElementById("bgVid");
-const fader = document.querySelector(".video-fader");
-fader.style.opacity = 0;
+        function playRandomVideo() {
+            const file = vids[Math.floor(Math.random() * vids.length)];
+            const url = base + encodeURIComponent(file);
 
-const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
+            video.src = url;
+            fader.style.opacity = 0;
 
-const vids = [
-    "1001 0018.mp4","1002 0002.mp4","Astrozombies Jam 2023.mp4","Gary Come Home Jam.mp4",
-    "Img 5782.mp4","Img 7270.mp4","MVL_0121.MP4","MVL_1081.MP4","MVL_1155 (1).MP4",
-    "Mvi 8568.mp4","Mvi 8569.mp4","Mvi 9377.mp4","Mvi 9378.mp4","Mvi 9379.mp4",
-    "Mvi 9380.mp4","Mvi 9381.mp4","Mvi 9382.mp4","Mvi 9383.mp4"
-];
+            video.play().catch(err => console.log("Autoplay blocked:", err));
 
-function playRandomVideo() {
-    const file = vids[Math.floor(Math.random() * vids.length)];
-    const url = base + encodeURIComponent(file);
+            document.body.addEventListener("click", () => video.play());
 
-    video.src = url;
-    fader.style.opacity = 0;
+            setTimeout(() => {
+                fader.style.opacity = 1;
+                setTimeout(playRandomVideo, 600);
+            }, 8000);
+        }
 
-    video.play().catch(err => console.log("Autoplay blocked:", err));
-
-    document.body.addEventListener("click", () => video.play());
-
-    setTimeout(() => {
-        fader.style.opacity = 1;
-        setTimeout(playRandomVideo, 600);
-    }, 8000);
-}
-
-playRandomVideo();
-</script>
+        playRandomVideo();
+    </script>
 
 </body>
-</html>
