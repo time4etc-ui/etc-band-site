@@ -16,105 +16,93 @@ body {
     color: white;
     text-align: center;
 }
-/* FULL-WIDTH NEON NAV STRIP */
+
+
+/* PUNK CHAOS NAV -------------------------------------------------- */
+
 .nav-strip {
-    box-sizing: border-box;
     width: 100%;
     padding: 25px 40px 10px;
-    background: #111;
-    border-top: 2px dashed #ff2bcd;
-    border-bottom: 2px dashed #ff2bcd;
-    box-shadow: 0 0 25px rgba(255, 43, 205, 0.5);
-
+    background: #0a0a0a;
+    border-top: 3px dashed #ff2bcd;
+    border-bottom: 3px dashed #ff2bcd;
+    box-shadow: 0 0 25px #ff2bcd, inset 0 0 20px #ff2bcd;
     display: flex;
-    justify-content: space-between; /* title left, nav right */
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+
+    /* Slight tilt for chaos */
+    transform: rotate(-0.3deg);
 }
 
-/* BIG NEON LOGO */
+/* LOGO — chaotic neon smear */
 .nav-strip .logo {
     font-weight: 900;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    font-size: 32px;
+    font-size: 36px;
     color: #ff2bcd;
-    text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
+    text-shadow:
+        0 0 10px #ff2bcd,
+        0 0 25px #ff2bcd,
+        2px 2px 0 #ff008c,
+        -2px -2px 0 #00eaff;
+
+    /* lets it shrink instead of ellipsis */
+    min-width: 0;
+    flex-shrink: 1;
+
+    /* slight jitter */
+    animation: logoJitter 3s infinite ease-in-out;
 }
 
-/* NAV LINKS */
+@keyframes logoJitter {
+    0% { transform: rotate(-0.3deg); }
+    50% { transform: rotate(0.3deg); }
+    100% { transform: rotate(-0.3deg); }
+}
+
+/* NAV LINKS — punk spacing + neon smear */
 .nav-centered {
     display: flex;
-    justify-content: center;
-    gap: 40px;
+    gap: 50px;
+    flex-shrink: 0;
 }
 
 .nav-centered a {
     color: #ff2bcd;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px #ff2bcd;
-    
-}
-.nav-centered {
-    flex-shrink: 0;
-}
-
-/* TOP TITLE --------------------------------------------------- */
-
-.site-title {
-    width: 100%;
-    padding: 25px 0;
-    font-size: 38px;
-    font-weight: bold;
-    color: #ff2bcd;
-    text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
+    font-size: 20px;
+    font-weight: 800;
     letter-spacing: 2px;
+
+    /* neon smear */
+    text-shadow:
+        0 0 10px #ff2bcd,
+        0 0 20px #ff2bcd,
+        2px 2px 0 #ff008c,
+        -2px -2px 0 #00eaff;
+
+    /* slight random rotation */
+    transform: rotate(-1deg);
+    transition: 0.2s ease;
 }
 
-/* NAV --------------------------------------------------------- */
-.nav-strip {
-    width: 100%;
-    max-width: 100%;
-
-    padding: 25px 40px 10px;
-    background: #111;
-    border-top: 2px dashed #ff2bcd;
-    border-bottom: 2px dashed #ff2bcd;
-    box-shadow: 0 0 25px rgba(255, 43, 205, 0.5);
-
-    display: flex;              /* THIS is the missing piece */
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-
-    animation: neonPulse 2.5s infinite alternate;
-
-position: sticky;
-top: 0;
-z-index: 999;
-
-}
-.nav-strip:hover {
-    animation: flicker 0.15s steps(2, end) 3;
-}
-@keyframes flicker {
-    0%   { opacity: 1; }
-    50%  { opacity: 0.4; }
-    100% { opacity: 1; }
-}
+/* CHAOTIC HOVER */
 .nav-centered a:hover {
     color: white;
-    text-shadow: 0 0 12px white, 0 0 20px white;
+    text-shadow:
+        0 0 15px white,
+        0 0 30px white,
+        2px 2px 0 #ff008c,
+        -2px -2px 0 #00eaff;
+
+    transform: rotate(2deg) scale(1.1);
 }
 
-    .logo {
-    flex-shrink: 1;
-    min-width: 0;
-}
 
-
+    
 /* GLOBAL NEON TEXT ------------------------------------------- */
 h1, h2, h3, p, a, .tag {
     color: #ff2bcd;
