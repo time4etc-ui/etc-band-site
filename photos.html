@@ -9,44 +9,50 @@
 
 /* ---------------- NAV BAR ---------------- */
 
+/* PUNK CHAOTIC NAV — UNIVERSAL VERSION */
 .nav-strip {
-    box-sizing: border-box;
     width: 100%;
-    padding: 25px 40px 10px;
-    background: #111;
-    border-top: 2px dashed #ff2bcd;
-    border-bottom: 2px dashed #ff2bcd;
-    box-shadow: 0 0 25px rgba(255, 43, 205, 0.5);
+    background: black;
+    padding: 20px 0;
+    border-bottom: 4px solid #ff00ff;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    position: fixed;
+    gap: 10px;
+    position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 9999;
 }
 
-.nav-strip .logo a {
-    color: #ff2bcd;
-    text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
+.logo {
+    font-size: 40px;
     font-weight: 900;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
     letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 32px;
-    text-decoration: none;
+}
+
+.nav-centered {
+    display: flex;
+    gap: 40px;
 }
 
 .nav-centered a {
-    margin-left: 20px;
-    color: #ff2bcd;
+    color: white;
     text-decoration: none;
+    font-size: 22px;
     font-weight: bold;
-    text-shadow: 0 0 8px #ff2bcd;
+    transform: rotate(-2deg);
+    text-shadow: 0 0 10px #ff00ff;
+    transition: 0.2s ease;
 }
 
 .nav-centered a:hover {
-    color: white;
-    text-shadow: 0 0 12px white;
+    color: #ff00ff;
+    text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+    transform: rotate(2deg) scale(1.1);
 }
+
 
 /* ---------------- BACKGROUND ---------------- */
 
@@ -143,17 +149,16 @@ h1 {
 
 <body>
 
-<header class="nav-strip">
-    <div class="logo">
-        <a href="index.html">EXPIRED TACO COUPON</a>
-    </div>
-
+<div class="nav-strip">
+    <div class="logo">EXPIRED TACO COUPON</div>
     <nav class="nav-centered">
+        <a href="index.html">HOME</a>
         <a href="about.html">ABOUT</a>
         <a href="photos.html">PHOTOS</a>
         <a href="contact.html">CONTACT</a>
     </nav>
-</header>
+</div>
+
 
 <h1>ETC Band Photos</h1>
 
