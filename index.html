@@ -770,56 +770,44 @@ setInterval(moveFleas, 16);
 </script>
 
  <script>
-
-
-     
-        const video = document.getElementById("bgVid");
-        const fader = document.querySelector(".video-fader");
-
+const video = document.getElementById("bgVid");
+const fader = document.querySelector(".video-fader");
 fader.style.opacity = 0;
 
-     
-        // Correct R2 folder path
-const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/videos_for_site/videos_for_site/";
+// CHANGE THIS to your real folder
+const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/";
 
+async function getVideos() {
+    const res = await fetch(base);
+    const text = await res.text();
 
-        const vids = [
-            "Mvi 9380.mp4",
-            "Mvi 9382.mp4",
-            "Mvi 9383.mp4",
-            "Mvi 8568.mp4",
-            "Mvi 9379.mp4"
-        ];
+    // Extract all .mp4 filenames from the R2 index page
+    const files = [...text.matchAll(/href="([^"]+\.mp4)"/g)].map(m => m[1]);
 
-        function playRandomVideo() {
+    return files;
+}
+
+async function playRandomVideo() {
+    const vids = await getVideos();
+    if (!vids.length) return console.error("No videos found!");
+
     const file = base + encodeURIComponent(vids[Math.floor(Math.random() * vids.length)]);
+    video.src = file;
 
-            video.src = file;
+    fader.style.opacity = 0;
 
-            // Fade in
-            fader.style.opacity = 0;
+    video.play().catch(err => console.log("Autoplay blocked:", err));
 
-          video.play().catch(err => {
-    console.log("Autoplay blocked:", err);
-});
+    document.body.addEventListener("click", () => video.play());
 
-            document.body.addEventListener("click", () => {
-    video.play();
-});
+    setTimeout(() => {
+        fader.style.opacity = 1;
+        setTimeout(playRandomVideo, 600);
+    }, 8000);
+}
 
+playRandomVideo();
 
-            // Play for 8 seconds
-            setTimeout(() => {
-                fader.style.opacity = 1;
-
-                setTimeout(() => {
-                    playRandomVideo();
-                }, 600);
-
-            }, 8000);
-        }
-
-        playRandomVideo();
     </script>
 
 
