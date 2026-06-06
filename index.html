@@ -55,6 +55,10 @@ body {
     font-weight: 700;
     letter-spacing: 1px;
     text-shadow: 0 0 10px #ff2bcd;
+    
+}
+.nav-centered {
+    flex-shrink: 0;
 }
 
 /* TOP TITLE --------------------------------------------------- */
@@ -83,7 +87,7 @@ body {
     display: flex;              /* THIS is the missing piece */
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
     animation: neonPulse 2.5s infinite alternate;
 
@@ -104,6 +108,12 @@ z-index: 999;
     color: white;
     text-shadow: 0 0 12px white, 0 0 20px white;
 }
+
+    .logo {
+    flex-shrink: 1;
+    min-width: 0;
+}
+
 
 /* GLOBAL NEON TEXT ------------------------------------------- */
 h1, h2, h3, p, a, .tag {
