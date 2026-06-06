@@ -85,40 +85,30 @@ h1 {
 
 /* ---------------- MASONRY GALLERY ---------------- */
 
-.gallery {
-    column-count: 3;
+.masonry-grid {
+    column-count: 4;
     column-gap: 15px;
-    max-width: 1400px;
-    margin: 40px auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
-.gallery img {
+.masonry-item {
     width: 100%;
     margin-bottom: 15px;
-    border-radius: 8px;
+    border-radius: 10px;
+    display: block;
+    break-inside: avoid;
+    box-shadow: 0 0 10px #ff2bcd;
     cursor: pointer;
-    transition: opacity 0.3s ease;
 }
 
-.gallery img:hover {
-    opacity: 0.8;
-}
-
-@media (max-width: 900px) {
-    .gallery {
-        column-count: 2;
-    }
-}
-
-@media (max-width: 600px) {
-    .gallery {
-        column-count: 1;
-    }
-}
+/* Responsive */
+@media (max-width: 900px) { .masonry-grid { column-count: 3; } }
+@media (max-width: 600px) { .masonry-grid { column-count: 2; } }
+@media (max-width: 400px) { .masonry-grid { column-count: 1; } }
 
 /* ---------------- FULLSCREEN VIEWER ---------------- */
 
+* Lightbox */
 #lightbox {
     position: fixed;
     top: 0;
@@ -203,98 +193,49 @@ h1 {
 <body>
 
 
-<div class="gallery">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8577.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8579.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8580.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9166.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9167.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9168.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9169.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9170.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9171.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9172.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9173.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9174.JPG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_9175.JPG">
+<!-- NEW gallery container -->
+<div id="photo-grid" class="masonry-grid"></div>
 
-<!-- Next batch -->
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8189.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8190.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8191.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8192.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8193.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8194.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8195.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8196.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8197.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8198.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_8199.JPEG">
-
-<!-- Next batch -->
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4016.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4026.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4027.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4028.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4029.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4030.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4031.JPEG">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/IMG_4032.JPEG">
-
-<!-- Next batch -->
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4762.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4761.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4760.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4734.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4733.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4722.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4721.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4719.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4718.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4713.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4710.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4704.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4703.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4702.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4699.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4698.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4693.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4692.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4690.jpeg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/DSC_4688.jpeg">
-
-<!-- Misc files -->
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/Erec%20Pic%201.jpg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/Erec%20Pic%203.jpg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/erec%20Pic%202.jpg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/download.jpg">
-<img loading="lazy" src="https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/att.q31Yf5ZvFPDtM2ugMckV2DIywTRuQiCfVDpA5DkBJWo.jpg">
-
-
-    </div> <!-- end gallery -->
-
-<!-- Fullscreen viewer -->
+<!-- Lightbox -->
 <div id="lightbox">
     <img id="lightbox-img" src="">
 </div>
 
 <script>
-    // Open fullscreen on click
-    document.addEventListener("click", function(e) {
-        if (e.target.tagName === "IMG" && e.target.parentElement.classList.contains("gallery")) {
-            const lightbox = document.getElementById("lightbox");
-            const lightboxImg = document.getElementById("lightbox-img");
-            lightboxImg.src = e.target.src;
-            lightbox.classList.add("active");
-        }
-    });
+// Load photos from JSON
+const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/";
+const manifestUrl = base + "photos.json";
 
-    // Close fullscreen when clicking outside the image
-    document.getElementById("lightbox").addEventListener("click", function(e) {
-        if (e.target.id === "lightbox" || e.target.id === "lightbox-img") {
-            this.classList.remove("active");
-        }
+async function loadPhotos() {
+    const res = await fetch(manifestUrl);
+    const data = await res.json();
+
+    const container = document.getElementById("photo-grid");
+
+    data.photos.forEach(file => {
+        const img = document.createElement("img");
+        img.src = base + encodeURIComponent(file);
+        img.loading = "lazy";
+        img.classList.add("masonry-item");
+        container.appendChild(img);
     });
+}
+
+loadPhotos();
+
+// Lightbox
+document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("masonry-item")) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        lightboxImg.src = e.target.src;
+        lightbox.classList.add("active");
+    }
+});
+
+document.getElementById("lightbox").addEventListener("click", function(e) {
+    this.classList.remove("active");
+});
 </script>
 
 </body>
