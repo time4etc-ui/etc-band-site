@@ -443,6 +443,10 @@ body, html {
             z-index: 10;
             color: white;
         }
+.page-content {
+    position: relative;
+    z-index: 10;
+}
 
 
 </style>
@@ -459,6 +463,25 @@ body, html {
     </nav>
 </header>
 
+
+
+<video id="bgVid" autoplay muted playsinline loop></video>
+<div class="video-fader"></div>
+
+<div class="page-content">
+
+    <header class="nav-strip">...</header>
+
+    <!-- ALL your content -->
+    <div class="coupon-hero">...</div>
+    <section id="stuff">...</section>
+    <div id="flea-container"></div>
+    <div id="flea-trail"></div>
+
+</div>
+
+
+    
 <!-- FACEBOOK SDK -->
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
