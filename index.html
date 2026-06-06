@@ -44,74 +44,65 @@ body {
     transform: rotate(-0.4deg);
 }
 
-/* LOGO — neon smear + jitter */
-.punk-logo {
-    font-size: 42px;
+/* RESTORED CLEAN HEADER ---------------------------------------- */
+
+.nav-strip {
+    width: 100%;
+    padding: 25px 40px 10px;
+    background: #111;
+    border-top: 2px dashed #ff2bcd;
+    border-bottom: 2px dashed #ff2bcd;
+    box-shadow: 0 0 25px rgba(255, 43, 205, 0.5);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    /* FIX: allow children to shrink instead of ellipsis */
+    min-width: 0;
+}
+
+/* LOGO — original neon look */
+.logo {
     font-weight: 900;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    font-size: 32px;
     color: #ff2bcd;
+    text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
 
-    text-shadow:
-        0 0 10px #ff2bcd,
-        0 0 25px #ff2bcd,
-        2px 2px 0 #ff008c,
-        -2px -2px 0 #00eaff;
-
-    /* prevent ellipsis */
+    /* FIX: prevent ellipsis */
     white-space: normal;
     overflow: visible;
     min-width: 0;
-
-    animation: punkJitter 3s infinite ease-in-out;
 }
 
-@keyframes punkJitter {
-    0% { transform: rotate(-0.4deg); }
-    50% { transform: rotate(0.4deg); }
-    100% { transform: rotate(-0.4deg); }
-}
-
-/* NAV — chaotic spacing + neon smear */
-.punk-nav {
+/* NAV LINKS — original clean version */
+.nav-centered {
     display: flex;
-    gap: 50px;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 40px;
 
-    /* prevent flex squeezing */
+    /* FIX: prevent squeezing */
     min-width: 0;
 }
 
-.punk-nav a {
+.nav-centered a {
     color: #ff2bcd;
     text-decoration: none;
-    font-size: 20px;
-    font-weight: 800;
-    letter-spacing: 2px;
-
-    text-shadow:
-        0 0 10px #ff2bcd,
-        0 0 20px #ff2bcd,
-        2px 2px 0 #ff008c,
-        -2px -2px 0 #00eaff;
-
-    transform: rotate(-1deg);
-    transition: 0.2s ease;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #ff2bcd;
 }
 
-/* CHAOTIC HOVER */
-.punk-nav a:hover {
+.nav-centered a:hover {
     color: white;
-    text-shadow:
-        0 0 15px white,
-        0 0 30px white,
-        2px 2px 0 #ff008c,
-        -2px -2px 0 #00eaff;
-
-    transform: rotate(2deg) scale(1.1);
+    text-shadow: 0 0 12px white, 0 0 20px white;
 }
-
 
     
 /* GLOBAL NEON TEXT ------------------------------------------- */
@@ -462,15 +453,16 @@ body, html {
 </head>
 <body>
 
-<header class="punk-header">
-    <div class="punk-logo">EXPIRED TACO COUPON</div>
+<div class="nav-strip">
+    <div class="logo">EXPIRED TACO COUPON</div>
 
-    <nav class="punk-nav">
+    <nav class="nav-centered">
         <a href="#about">ABOUT</a>
         <a href="#projects">PROJECTS</a>
         <a href="#contact">CONTACT</a>
     </nav>
-</header>
+</div>
+
 
 
 
