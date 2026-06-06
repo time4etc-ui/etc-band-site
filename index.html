@@ -774,8 +774,8 @@ const video = document.getElementById("bgVid");
 const fader = document.querySelector(".video-fader");
 fader.style.opacity = 0;
 
-// CHANGE THIS to your real folder
-const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Videos/";
+// Your real R2 folder path
+const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/etc-media/Videos/videos_for_site/videos_for_site/";
 
 async function getVideos() {
     const res = await fetch(base);
@@ -789,10 +789,12 @@ async function getVideos() {
 
 async function playRandomVideo() {
     const vids = await getVideos();
-    if (!vids.length) return console.error("No videos found!");
+    if (!vids.length) return console.error("No videos found in R2 folder!");
 
-    const file = base + encodeURIComponent(vids[Math.floor(Math.random() * vids.length)]);
-    video.src = file;
+    const file = vids[Math.floor(Math.random() * vids.length)];
+    const url = base + encodeURIComponent(file);
+
+    video.src = url;
 
     fader.style.opacity = 0;
 
