@@ -17,35 +17,11 @@ body {
     text-align: center;
 }
 
-
-/* PUNK CHAOS NAV -------------------------------------------------- */
 /* ============================================================
-   CHAOTIC NEON PUNK HEADER
+   CLEAN TITLE + PUNK CHAOTIC NAV (FINAL VERSION)
    ============================================================ */
 
-.punk-header {
-    width: 100%;
-    padding: 25px 40px 15px;
-    background: #0a0a0a;
-    border-top: 3px dashed #ff2bcd;
-    border-bottom: 3px dashed #ff2bcd;
-    box-shadow: 0 0 25px #ff2bcd, inset 0 0 20px #ff2bcd;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-
-    position: sticky;
-    top: 0;
-    z-index: 999;
-
-    /* slight chaotic tilt */
-    transform: rotate(-0.4deg);
-}
-
-/* RESTORED CLEAN HEADER ---------------------------------------- */
-
+/* HEADER BAR */
 .nav-strip {
     width: 100%;
     padding: 25px 40px 10px;
@@ -62,11 +38,10 @@ body {
     top: 0;
     z-index: 999;
 
-    /* FIX: allow children to shrink instead of ellipsis */
-    min-width: 0;
+    min-width: 0; /* prevents ellipsis */
 }
 
-/* LOGO — original neon look */
+/* CLEAN TITLE (your original style) */
 .logo {
     font-weight: 900;
     letter-spacing: 3px;
@@ -75,47 +50,55 @@ body {
     color: #ff2bcd;
     text-shadow: 0 0 12px #ff2bcd, 0 0 22px #ff2bcd;
 
-    /* FIX: prevent ellipsis */
     white-space: normal;
     overflow: visible;
     min-width: 0;
 }
 
-/* NAV LINKS — original clean version */
+/* PUNK CHAOTIC NAV LINKS */
 .nav-centered {
     display: flex;
     gap: 40px;
-
-    /* FIX: prevent squeezing */
     min-width: 0;
 }
 
 .nav-centered a {
     color: #ff2bcd;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px #ff2bcd;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 0 10px #ff2bcd,
+        0 0 20px #ff2bcd,
+        2px 2px 0 #ff008c,
+        -2px -2px 0 #00eaff;
+
+    transform: rotate(-1deg);
+    transition: 0.2s ease;
 }
 
 .nav-centered a:hover {
     color: white;
-    text-shadow: 0 0 12px white, 0 0 20px white;
+    text-shadow:
+        0 0 15px white,
+        0 0 30px white,
+        2px 2px 0 #ff008c,
+        -2px -2px 0 #00eaff;
+
+    transform: rotate(2deg) scale(1.1);
 }
 
-    
 /* GLOBAL NEON TEXT ------------------------------------------- */
 h1, h2, h3, p, a, .tag {
     color: #ff2bcd;
     text-shadow: 0 0 10px #ff2bcd, 0 0 20px #ff2bcd;
 }
 
-
 /* ============================
    GLOBAL PAGE STYLING
 ============================ */
-
 
 body {
     margin: 0;
@@ -129,7 +112,6 @@ body {
     color: #fff;
     text-align: center;
 }
-
 
 /* ============================
    HERO SECTION
@@ -156,7 +138,6 @@ body {
     50% { transform: translateY(8px); }
 }
 
-
 .hero-section {
     display: flex;
     flex-direction: column;
@@ -177,7 +158,7 @@ body {
     align-items: flex-start;
     gap: 40px;
     margin-top: 30px;
-    flex-wrap: wrap; /* makes it mobile-friendly */
+    flex-wrap: wrap;
 }
 
 .social-box {
@@ -187,7 +168,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 15px #ff2bd4;
 }
-
 
 .hero-img {
     width: 500px;
@@ -223,7 +203,7 @@ body {
     color: #ff00ff;
     text-shadow: 0 0 10px #ff00ff;
     display: inline-block;
-    transform: rotate(45deg); /* points down-left */
+    transform: rotate(45deg);
     animation: fb-bounce 1s infinite;
     margin-top: 5px;
 }
@@ -233,9 +213,7 @@ body {
     50% { transform: rotate(45deg) translateY(8px); }
 }
 
-
 .facebook-embed,
-
 .youtube-embed {
     background: #111;
     border: 2px dashed var(--neon);
@@ -267,7 +245,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-
 /* BUTTONS ----------------------------------------------------- */
 
 .hero-buttons {
@@ -285,7 +262,6 @@ body {
     text-decoration: none;
     font-size: 18px;
 }
-
 
 /* BAND PHOTO BUTTON ------------------------------------------ */
 #band-photo-btn {
@@ -344,6 +320,8 @@ body, html {
     max-width: 100%;
     overflow-x: hidden;
 }
+
+
 
 /* FLEA -------------------------------------------------------- */
 #flea-container {
@@ -462,6 +440,9 @@ body, html {
         <a href="#contact">CONTACT</a>
     </nav>
 </div>
+
+<div class="site-title">Welcome to Expired Taco Coupon's Page</div>
+
 
 
 
