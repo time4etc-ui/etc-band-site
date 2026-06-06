@@ -7,19 +7,13 @@
 
 <style>
 
-/* GLOBAL ------------------------------------------------------ */
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: white;
-    text-align: center;
-}
-
 /* ============================================================
    CLEAN TITLE + PUNK CHAOTIC NAV (FINAL VERSION)
    ============================================================ */
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
 /* HEADER BAR */
 .nav-strip {
@@ -38,7 +32,9 @@ body {
     top: 0;
     z-index: 999;
 
-    min-width: 0; /* prevents ellipsis */
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* CLEAN TITLE (your original style) */
@@ -315,12 +311,6 @@ body {
 body, html {
     overflow-x: hidden;
 }
-
-.nav-strip {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
 
 
 /* FLEA -------------------------------------------------------- */
