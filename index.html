@@ -31,6 +31,24 @@
     }
 }
 
+h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+}
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+    
 html, body {
     max-width: 100%;
     overflow-x: hidden;
