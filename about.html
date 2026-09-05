@@ -15,50 +15,48 @@
         }
 
         /* NAV BAR */
-      /* PUNK CHAOTIC NAV */
-.nav-strip {
-    width: 100%;
-    background: black;
-    padding: 20px 0;
-    border-bottom: 4px solid #ff00ff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-}
+        .nav-strip {
+            width: 100%;
+            background: black;
+            padding: 20px 0;
+            border-bottom: 4px solid #ff00ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+        }
 
-.logo {
-    font-size: 40px;
-    font-weight: 900;
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
-    letter-spacing: 3px;
-}
+        .logo {
+            font-size: 40px;
+            font-weight: 900;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            letter-spacing: 3px;
+        }
 
-.nav-centered {
-    display: flex;
-    gap: 40px;
-}
+        .nav-centered {
+            display: flex;
+            gap: 40px;
+        }
 
-.nav-centered a {
-    color: white;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    transform: rotate(-2deg);
-    text-shadow: 0 0 10px #ff00ff;
-    transition: 0.2s ease;
-}
+        .nav-centered a {
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+            transform: rotate(-2deg);
+            text-shadow: 0 0 10px #ff00ff;
+            transition: 0.2s ease;
+        }
 
-.nav-centered a:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
-    transform: rotate(2deg) scale(1.1);
-}
-
+        .nav-centered a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+            transform: rotate(2deg) scale(1.1);
+        }
 
         /* PAGE CONTENT SPACING */
         .page-content {
@@ -129,61 +127,23 @@
 <body>
 
     <!-- NAVIGATION -->
-
     <div class="nav-strip">
-    <div class="logo">EXPIRED TACO COUPON</div>
-    <nav class="nav-centered">
-        <a href="index.html">HOME</a>
-        <a href="about.html">ABOUT</a>
-        <a href="photos.html">PHOTOS</a>
-        <a href="contact.html">CONTACT</a>
-    </nav>
-</div>
-
+        <div class="logo">EXPIRED TACO COUPON</div>
+        <nav class="nav-centered">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="photos.html">PHOTOS</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </div>
 
     <div class="page-content">
 
         <!-- MEET THE BAND -->
         <h1 class="neon-title">Meet the Band</h1>
 
-        <div class="band-grid">
-
-<div class="member-card">
-    <img src="photos/IMG_8195.JPEG" alt="Felipe Rodz">
-    <h2>Felipe Rodriguez</h2>
-    <p class="role">Main Vocals • Rhythm Guitar</p>
-    <p>Lost the Expired Coupon -  Retail Worker</p>
-</div>
-
-            <div class="member-card">
-                <img src="images/member2.jpg" alt="Band Member 2">
-                <h2>Kevin Martinez</h2>
-                <p class="role">Drums • Secondary Vocals</p>
-                <p>He plays the Drums, Brother to Erick.. what more can i put here.</p>
-            </div>
-
-            <div class="member-card">
-                <img src="images/member3.jpg" alt="Band Member 3">
-                <h2>Erick Martinez</h2>
-                <p class="role">Lead Guitar</p>
-                <p>Brother to Kevin Martinez the "Drummer" And one other thing</p>
-            </div>
-
-            <div class="member-card">
-                <img src="images/member4.jpg" alt="Band Member 4">
-                <h2>Rafael Diaz</h2>
-                <p class="role">Guitar • Bass</p>
-                <p>Something somethin...</p>
-            </div>
-
-            <div class="member-card">
-                <img src="images/member5.jpg" alt="Band Member 5">
-                <h2>Austin Randle</h2>
-                <p class="role">Secondary Guitar • Keyboard/Synths</p>
-                <p>The token White Guy</p>
-            </div>
-
-        </div>
+        <!-- Dynamic band grid -->
+        <div class="band-grid" id="band-grid"></div>
 
         <!-- STORY SECTION -->
         <section class="band-story">
@@ -194,6 +154,35 @@
         </section>
 
     </div>
+
+    <!-- JSON LOADER SCRIPT -->
+    <script>
+        const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/About%20photos/";
+        const manifestUrl = base + "band.json?v=1";
+
+        async function loadBand() {
+            const res = await fetch(manifestUrl);
+            const data = await res.json();
+
+            const container = document.getElementById("band-grid");
+
+            data.members.forEach(member => {
+                const card = document.createElement("div");
+                card.classList.add("member-card");
+
+                card.innerHTML = `
+                    <img src="${base + member.photo}" alt="${member.name}">
+                    <h2>${member.name}</h2>
+                    <p class="role">${member.role}</p>
+                    <p>${member.bio}</p>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        loadBand();
+    </script>
 
 </body>
 </html>
