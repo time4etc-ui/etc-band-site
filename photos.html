@@ -202,10 +202,7 @@ async function loadPhotos() {
 
     /* ---------------- OLDER PHOTOS SECTION ---------------- */
     if (data.photos && data.photos.length > 0) {
-        const olderHeader = document.createElement("h2");
-        olderHeader.textContent = "All Photos";
-        olderHeader.style.marginTop = "40px";
-        container.appendChild(olderHeader);
+     
 
         data.photos.forEach(file => {
             const img = document.createElement("img");
