@@ -171,10 +171,9 @@ h1 {
 </div>
 
 <script>
-// Load photos from JSON
+// Base R2 path
 const base = "https://pub-c4a87b530c7a4af4a2eb70d617dd24e6.r2.dev/Pictures/photos/";
-const manifestUrl = base + "photos2.json";
-
+const manifestUrl = base + "NewJsonForWebsite.txt?v=3"; // bump version when updating JSON
 
 async function loadPhotos() {
     const res = await fetch(manifestUrl);
@@ -182,18 +181,48 @@ async function loadPhotos() {
 
     const container = document.getElementById("photo-grid");
 
-    data.photos.forEach(file => {
-        const img = document.createElement("img");
-        img.src = base + encodeURIComponent(file);
-        img.loading = "lazy";
-        img.classList.add("masonry-item");
-        container.appendChild(img);
-    });
+    /* ---------------- RECENT SECTION ---------------- */
+    if (data.Recent && data.Recent.length > 0) {
+        const recentHeader = document.createElement("h2");
+        recentHeader.textContent = "Recent Photos";
+        recentHeader.style.marginTop = "40px";
+        container.appendChild(recentHeader);
+
+        data.Recent.forEach(file => {
+            const img = document.createElement("img");
+
+            // IMPORTANT: Your actual folder path
+            img.src = base + "Recent/New%20Pictures%20for%20Website/" + encodeURIComponent(file);
+
+            img.loading = "lazy";
+            img.classList.add("masonry-item");
+            container.appendChild(img);
+        });
+    }
+
+    /* ---------------- OLDER PHOTOS SECTION ---------------- */
+    if (data.photos && data.photos.length > 0) {
+        const olderHeader = document.createElement("h2");
+        olderHeader.textContent = "All Photos";
+        olderHeader.style.marginTop = "40px";
+        container.appendChild(olderHeader);
+
+        data.photos.forEach(file => {
+            const img = document.createElement("img");
+
+            // These photos are in the root folder
+            img.src = base + encodeURIComponent(file);
+
+            img.loading = "lazy";
+            img.classList.add("masonry-item");
+            container.appendChild(img);
+        });
+    }
 }
 
 loadPhotos();
 
-// Lightbox
+/* ---------------- LIGHTBOX ---------------- */
 document.addEventListener("click", function(e) {
     if (e.target.classList.contains("masonry-item")) {
         const lightbox = document.getElementById("lightbox");
@@ -203,10 +232,11 @@ document.addEventListener("click", function(e) {
     }
 });
 
-document.getElementById("lightbox").addEventListener("click", function(e) {
+document.getElementById("lightbox").addEventListener("click", function() {
     this.classList.remove("active");
 });
 </script>
+
 
 </body>
 </html>
