@@ -183,10 +183,7 @@ async function loadPhotos() {
 
     /* ---------------- RECENT SECTION ---------------- */
     if (data.Recent && data.Recent.length > 0) {
-        const recentHeader = document.createElement("h2");
-        recentHeader.textContent = "Recent Photos";
-        recentHeader.style.marginTop = "40px";
-        container.appendChild(recentHeader);
+      
 
         data.Recent.forEach(file => {
             const img = document.createElement("img");
